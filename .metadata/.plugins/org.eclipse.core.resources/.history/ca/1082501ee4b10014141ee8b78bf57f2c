@@ -1,0 +1,13 @@
+
+public class CustomEx extends Exception{
+	private double amount;
+	public String msg;
+	public CustomEx(double amount){
+		this.amount=amount;
+	}
+	public double getDifference(double x, double y)
+	{
+		return x-y;
+	}
+
+}

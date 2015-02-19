@@ -1,0 +1,11 @@
+
+public class Absolute<T> {
+	 double x;
+	 public Absolute(double n){
+		 this.x=abs(n);
+	 }
+	 public T getValue(){
+		 return this.x;
+	 }
+	 
+}

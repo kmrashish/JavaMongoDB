@@ -1,0 +1,21 @@
+
+public class Exceptiondemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int x=10;
+		int y=0;
+		try
+		{
+		System.out.println(x/y);
+		System.out.println("Back in try block");
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Exception: "+ex.getMessage()+"\n");
+			ex.printStackTrace();
+		}
+
+	}
+
+}

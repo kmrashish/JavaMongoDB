@@ -1,0 +1,58 @@
+import com.mongodb.MongoClient;
+import com.mongodb.MongoException;
+import com.mongodb.WriteConcern;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.ServerAddress;
+
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+
+public class connect{
+   public static void main( String args[] ){
+      try{   
+		 
+         MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+         
+         DB db = mongoClient.getDB( "testdb" );
+		 System.out.println("Connection successful");
+		 
+		 SimpleDateFormat sdf=new SimpleDateFormat("MM/DD/YYYY");
+		 Date firstjan=sdf.parse("01/01/2015");
+		 Calendar cal=Calendar.getInstance();
+		 cal.setTime(firstjan);
+		 
+		 
+		 BasicDBObject inobj=new BasicDBObject("aa",1);
+		 DBCollection col=db.getCollection("testcoll");
+		 System.out.println("testcoll selected");
+		 int b=2;
+		 int c=3;
+		 char d='a';
+		 
+		 for(int x=0;x<100;x++){			 
+		 BasicDBObject obj=new BasicDBObject("a",1).append("b",b).append("c",c).append("d",d).append("d", cal.getTime()).append("f",inobj);
+		 col.insert(obj);
+		 b++;c++;d++;		
+		 cal.add(Calendar.DATE, x);
+		 }
+		 
+		 
+		 DBCollection collection2=db.getCollection("testcoll");
+		 DBCursor cursor2=collection2.find();
+		 int p=1;
+		 while(cursor2.hasNext())
+		 {
+			 System.out.println("Document No. "+p+": "+cursor2.next());p++;
+		 }
+      }
+      catch(Exception e){
+	     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	  }
+   }
+}

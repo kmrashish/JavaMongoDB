@@ -1,0 +1,20 @@
+package com.ivp.jdbc.example;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
+public class JDBCTest {
+	public static void main(String args[]) throws SQLException
+	{
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Connection connection=DriverManager.getConnection("jdbc:sqlserver://192.168.0.63\DEV05H;user=MCA2015;password=ivp@123");
+	}
+}

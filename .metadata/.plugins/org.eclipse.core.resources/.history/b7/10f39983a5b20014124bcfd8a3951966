@@ -1,0 +1,11 @@
+
+public class Absolute<T> {
+	 double x;
+	 public Absolute(double n){
+		 if(n<0)n=(-1)*n;
+	 }
+	 public T getValue(){
+		 return this.x;
+	 }
+	 
+}

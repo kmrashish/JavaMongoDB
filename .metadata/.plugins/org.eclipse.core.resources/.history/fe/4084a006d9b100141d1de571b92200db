@@ -1,0 +1,31 @@
+
+public class Exceptiondemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int x=10;
+		int y=0;
+		System.out.println(divide(x, y));
+		
+		
+
+	}
+	public static String divide(int x, int y)
+	{
+		String result="";
+		try
+		{
+		result="Result: "+(x/y);
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Exception: "+ex.getMessage()+"\n");
+			result=ex.toString();
+		}
+		finally
+		{
+			return result;
+		}
+	}
+
+}

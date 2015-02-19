@@ -1,0 +1,19 @@
+
+
+public abstract class Vehicle {
+
+	private boolean isStarted;
+	private int noOfTyres;
+	
+	public boolean start() throws Exception{
+		if(isStarted) throw new Exception("Already Started");
+		else this.isStarted=true;
+		return this.isStarted;	
+	}
+	
+	public int getNoOfTyres()
+	{
+		return noOfTyres;
+	}
+}
+
